@@ -9,7 +9,8 @@ def take_screenshot(url, output_file_name):
     chrome_options = Options()
     chrome_options.add_argument("--headless")  # Run Chrome in headless mode
     chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--disable-dev-shm-usage")    
+    chrome_options.add_argument("window-size=1920,1080")
     
     
     # Set up the WebDriver
@@ -23,15 +24,15 @@ def take_screenshot(url, output_file_name):
         driver.implicitly_wait(10)
 
         # Take a screenshot and save it
-        driver.save_screenshot(output_filename)
-        print(f"Screenshot saved as {output_filename}")
+        driver.save_screenshot("images/" + "name.png" )
+        print(f"Screenshot saved as {"images/" + "name.png" }")
     finally:
         # Close the browser
         driver.quit()
 
 if __name__ == "__main__":
     # URL of the webpage to screenshot
-    url = "http://127.0.0.1:5500/index.html"  # Replace with your URL
+    url = "https://borndigital.ai/cs/"  # Replace with your URL
 
     # Output file name
     output_filename = "screenshot.png"
